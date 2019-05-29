@@ -22,3 +22,27 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+user_input_year = input("Please enter a year(YYYY): ")
+user_input_month = input("Please enter a month(ie: may = 5): ")
+
+if not user_input_year and not user_input_month:
+  now = datetime.now()
+  print(calendar.month(now.year, now.month, w=0, l=0))
+elif not user_input_year and user_input_month:
+  now = datetime.now()
+  if(int(user_input_month) < 1 or int(user_input_month) > 12):
+    print("That is an invalid month. \nPlease enter a valid month")
+  else:
+    print(calendar.month(now.year, int(user_input_month), w=0, l=0))
+elif user_input_year and user_input_month:
+  print(calendar.month(int(user_input_year), int(user_input_month), w=0, l=0))
+else:
+  print("Please enter a valid year and month(1-12) in the proper format (YYYY/MM)")
+
+
+
+
+
+
+
